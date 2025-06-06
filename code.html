@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Hidrotech - Smart Hydroponics for Fresh Surabaya</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap');
+
+  :root {
+    --clr-bg: #ffffff;
+    --clr-text-primary: #111827;
+    --clr-text-secondary: #6b7280;
+    --clr-accent: #2563eb;
+    --clr-accent-hover: #1e40af;
+    --border-radius: 0.75rem;
+    --shadow-light: 0 4px 8px rgba(0,0,0,0.05);
+    --shadow-hover: 0 6px 12px rgba(37, 99, 235, 0.2);
+    --transition-speed: 0.3s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--clr-bg);
+    color: var(--clr-text-secondary);
+    font-size: 18px;
+    line-height: 1.6;
+    user-select: none;
+  }
+
+  h1, h2, h3 {
+    color: var(--clr-text-primary);
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    font-weight: 700;
+    line-height: 1.1;
+  }
+  h1 {
+    font-size: 3rem;
+    font-weight: 800;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+  h3 {
+    font-size: 1.25rem;
+  }
+  p {
+    margin-top: 0;
+    margin-bottom: 1.5em;
+  }
+
+  a {
+    text-decoration: none;
+    color: var(--clr-text-primary);
+    transition: color var(--transition-speed);
+  }
+  a:hover, a:focus {
+    color: var(--clr-accent-hover);
+    outline: none;
+  }
+
+  /* Container */
+  .container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Sticky header */
+  header {
+    position: sticky;
+    top: 0;
+    background: var(--clr-bg);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    z-index: 9999;
+  }
+  nav {
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo {
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: var(--clr-text-primary);
+    user-select: none;
+  }
+
+  /* Navigation links */
+  .nav-links {
+    display: flex;
+    list-style: none;
+    gap: 1.75rem;
+  }
+  .nav-links li a {
+    font-weight: 600;
+    font-size: 1rem;
+    position: relative;
+    padding: 0.25rem 0;
+    color: var(--clr-text-primary);
+  }
+  .nav-links li a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--clr-accent);
+    transition: width var(--transition-speed);
+  }
+  .nav-links li a:hover::after,
+  .nav-links li a:focus::after {
+    width: 100%;
+  }
+
+  /* CTA button in navbar */
+  .cta {
+    background-color: var(--clr-accent);
+    color: white;
+    font-weight: 700;
+    border-radius: var(--border-radius);
+    padding: 0.5rem 1.5rem;
+    box-shadow: var(--shadow-light);
+    transition:
+      background-color var(--transition-speed),
+      box-shadow var(--transition-speed),
+      transform 0.2s ease-in-out;
+    user-select: none;
+  }
+  .cta:hover,
+  .cta:focus {
+    background-color: var(--clr-accent-hover);
+    box-shadow: var(--shadow-hover);
+    transform: scale(1.05);
+    outline-offset: 4px;
+  }
+
+  /* Hero section */
+  .hero {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    color: var(--clr-text-primary);
+    text-align: center;
+  }
+  .hero .subtitle {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--clr-accent);
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .hero p.lead {
+    font-weight: 600;
+    font-size: 1.25rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--clr-text-secondary);
+    margin-bottom: 2rem;
+  }
+  .hero .hero-btn {
+    background-color: var(--clr-accent);
+    color: white;
+    font-weight: 700;
+    padding: 1rem 2.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+    font-size: 1.125rem;
+    transition:
+      background-color var(--transition-speed),
+      box-shadow var(--transition-speed),
+      transform 0.2s ease-in-out;
+    cursor: pointer;
+    user-select: none;
+  }
+  .hero .hero-btn:hover,
+  .hero .hero-btn:focus {
+    background-color: var(--clr-accent-hover);
+    box-shadow: var(--shadow-hover);
+    transform: scale(1.05);
+    outline-offset: 4px;
+  }
+
+  /* Section styles with white backgrounds */
+  section.container {
+    background: var(--clr-bg);
+    border-radius: var(--border-radius);
+    padding: 3rem 2rem;
+    margin-bottom: 3rem;
+    box-shadow: var(--shadow-light);
+    color: var(--clr-text-primary);
+  }
+
+  /* Features Section */
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    gap: 2.5rem;
+  }
+
+  .feature-card {
+    background: #f9fafb;
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    box-shadow: var(--shadow-light);
+    transition: box-shadow var(--transition-speed);
+    color: var(--clr-text-primary);
+  }
+  .feature-card:hover,
+  .feature-card:focus-within {
+    box-shadow: var(--shadow-hover);
+  }
+
+  .feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--clr-accent);
+  }
+
+  .feature-title {
+    font-weight: 700;
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .feature-desc {
+    color: var(--clr-text-secondary);
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  /* Berita (News) Section */
+  .news {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .news-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+  .news-list li {
+    border-left: 4px solid var(--clr-accent);
+    padding-left: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .news-list li:last-child {
+    margin-bottom: 0;
+  }
+  .news-list li h3 {
+    margin-bottom: 0.25rem;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--clr-text-primary);
+  }
+  .news-list li p {
+    margin: 0;
+    color: var(--clr-text-secondary);
+    font-size: 1rem;
+  }
+
+  /* Contact Form */
+  form label {
+    font-weight: 600;
+    color: var(--clr-text-primary);
+  }
+
+  form input,
+  form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    margin: 0.25rem 0 1rem 0;
+    border: 1px solid #d1d5db;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-family: inherit;
+  }
+
+  form textarea {
+    resize: vertical;
+  }
+
+  form button[type="submit"] {
+    background-color: var(--clr-accent);
+    color: white;
+    font-weight: 700;
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+    font-size: 1.125rem;
+    transition: background-color var(--transition-speed), box-shadow var(--transition-speed), transform 0.2s ease-in-out;
+    cursor: pointer;
+    user-select: none;
+    border: none;
+    width: 100%;
+  }
+
+  form button[type="submit"]:hover,
+  form button[type="submit"]:focus {
+    background-color: var(--clr-accent-hover);
+    box-shadow: var(--shadow-hover);
+    transform: scale(1.05);
+    outline-offset: 4px;
+  }
+
+  /* Footer */
+  footer {
+    border-top: 1px solid #e5e7eb;
+    text-align: center;
+    padding: 2rem 1rem;
+    font-size: 0.9rem;
+    color: var(--clr-text-secondary);
+    user-select: none;
+  }
+
+  /* Responsive */
+  @media (max-width: 640px) {
+    h1 {
+      font-size: 2.25rem;
+    }
+    h2 {
+      font-size: 1.5rem;
+    }
+    nav {
+      height: 56px;
+    }
+    .nav-links {
+      gap: 1rem;
+    }
+    .hero {
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
+    .hero p.lead {
+      font-size: 1rem;
+      max-width: 100%;
+    }
+    .hero .hero-btn {
+      padding: 1rem 2rem;
+      font-size: 1rem;
+    }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <nav aria-label="Primary navigation">
+      <div class="logo" aria-label="Toko Hidrotech">Hidrotech</div>
+      <ul class="nav-links" role="menubar">
+        <li role="none"><a href="#home" role="menuitem" tabindex="0">Home</a></li>
+        <li role="none"><a href="#about" role="menuitem" tabindex="-1">About</a></li>
+        <li role="none"><a href="#services" role="menuitem" tabindex="-1">Services</a></li>
+        <li role="none"><a href="#news" role="menuitem" tabindex="-1">Berita</a></li>
+        <li role="none"><a href="#contact" role="menuitem" tabindex="-1">Contact</a></li>
+      </ul>
+      <a href="#contact" class="cta" role="button" tabindex="0">Get Started</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="home" role="region" aria-label="Hero section">
+    <div class="container">
+      <h1>Smart Hydroponics for Fresh Surabaya</h1>
+      <div class="subtitle">"Teknologi Tepat, Panen Cepat, Kualitas Hebat"</div>
+      <p class="lead">Best Partner Solution+++<br />Surabaya, Indonesia</p>
+      <a href="#contact" class="hero-btn" role="button">Hubungi Kami</a>
+    </div>
+  </section>
+
+  <section class="container" id="about" role="region" aria-label="About us">
+    <h2>Tentang Kami</h2>
+    <p>Kami menyediakan solusi hidroponik modern yang mengedepankan teknologi tepat guna, hasil panen cepat, dan kualitas produk terbaik untuk mendukung pertanian masa depan Surabaya.</p>
+  </section>
+
+  <section class="features container" id="services" role="region" aria-label="Our services">
+    <article class="feature-card" tabindex="0">
+      <div class="feature-icon" aria-hidden="true">🌱</div>
+      <h3 class="feature-title">Teknologi Mutakhir</h3>
+      <p class="feature-desc">Menggunakan teknologi hidroponik terkini untuk hasil panen maksimal dan efisiensi penggunaan air.</p>
+    </article>
+
+    <article class="feature-card" tabindex="0">
+      <div class="feature-icon" aria-hidden="true">⚡</div>
+      <h3 class="feature-title">Panen Cepat</h3>
+      <p class="feature-desc">Sistem otomatisasi dan optimasi nutrisi mempercepat masa panen tanpa mengorbankan kualitas.</p>
+    </article>
+
+    <article class="feature-card" tabindex="0">
+      <div class="feature-icon" aria-hidden="true">🌿</div>
+      <h3 class="feature-title">Kualitas Hebat</h3>
+      <p class="feature-desc">Produk segar dengan standar kualitas tinggi yang siap memenuhi kebutuhan pasar Surabaya.</p>
+    </article>
+  </section>
+
+  <section class="container" id="news" role="region" aria-label="News about hydroponic technology">
+    <h2>Berita tentang Teknologi Hidroponik</h2>
+    <ul class="news-list">
+      <li>
+        <h3>Tren Pertumbuhan Hidroponik pada Tahun 2024</h3>
+        <p>Hidroponik semakin diminati karena efisiensi penggunaan lahan dan hasil panen yang lebih cepat dan berkualitas.</p>
+      </li>
+      <li>
+        <h3>Inovasi Terbaru dalam Nutrisi Tanaman Hidroponik</h3>
+        <p>Penelitian terkini menunjukkan formulasi nutrisi yang lebih optimal dapat meningkatkan produktivitas tanaman hidroponik.</p>
+      </li>
+      <li>
+        <h3>Peran Teknologi IoT dalam Monitoring Sistem Hidroponik</h3>
+        <p>Penerapan Internet of Things memungkinkan pengawasan real-time yang memudahkan pengelolaan sistem hidroponik tanpa harus selalu hadir secara fisik.</p>
+      </li>
+    </ul>
+  </section>
+
+  <section class="container" id="contact" role="region" aria-label="Contact form">
+    <h2>Hubungi Kami</h2>
+    <form action="#" method="post" novalidate>
+      <label for="name">Nama Lengkap</label><br />
+      <input type="text" id="name" name="name" required aria-required="true" placeholder="Masukkan nama lengkap" />
+      <label for="email">Email</label><br />
+      <input type="email" id="email" name="email" required aria-required="true" placeholder="Masukkan email" />
+      <label for="message">Pesan</label><br />
+      <textarea id="message" name="message" rows="5" required aria-required="true" placeholder="Tulis pesan Anda di sini"></textarea>
+      <button type="submit">Kirim Pesan</button>
+    </form>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <p>&copy; 2024 Hidrotech, Surabaya. All rights reserved.</p>
+  </div>
+</footer>
+</body>
+</html>
